@@ -4,7 +4,7 @@ Tags: accessibility, wcag, ada, eaa, audit
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,7 +70,22 @@ No automated tool can promise compliance. A11yFix fixes mechanical issues and pr
 
 Scan results live in your own database. Nothing is sent to third-party services; the scanner crawls only your own site.
 
+== A11yFix Pro ==
+
+The companion plugin adds the client-facing layer on top of the free audit:
+
+* client-ready compliance report (print to PDF) with an agency white-label
+* weekly rescans of up to 25 pages with change digests
+* an honest "what automation does not cover" section
+
+<a href="https://lava.top/products/685c5120-2915-4fe4-b120-20e022fa1173">Buy A11yFix Pro — $99/year</a>
+
 == Changelog ==
+
+= 0.1.1 =
+* Added: A11yFix Pro banner — the compliance-report companion plugin is now available.
+
+= 0.1.0 =
 
 = 0.1.0 =
 * First release: audit (9 rules), safe repairs with per-repair toggles, change preview, daily scheduled scan, clean uninstall.

@@ -3,7 +3,7 @@
  * Plugin Name:       A11yFix
  * Plugin URI:        https://github.com/Yodzira/a11yfix
  * Description:       Accessibility audit with real markup fixes: find missing alt text, heading skips, unlabeled form fields — preview and apply safe DOM fixes. No overlay widgets.
- * Version:           0.1.0
+ * Version:           0.1.1
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Yodzira
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'A11YFIX_VERSION', '0.1.0' );
+define( 'A11YFIX_VERSION', '0.1.1' );
 define( 'A11YFIX_FILE', __FILE__ );
 define( 'A11YFIX_DIR', __DIR__ );
 

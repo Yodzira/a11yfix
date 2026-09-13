@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A11yFix — доступность без оверлеев: аудит и настоящий ремонт разметки</title>
+<meta name="description" content="Плагин WordPress: аудит доступности (9 правил) и настоящий ремонт DOM с предпросмотром каждой правки. Без overlay-виджетов. Бесплатная версия + Pro с отчётом для клиента.">
+<meta property="og:title" content="A11yFix — real accessibility fixes for WordPress">
+<meta property="og:description" content="Audit + real DOM fixes with a preview of every change. No overlay widgets.">
+<style>
+  :root{--bg:#0d1117;--panel:#161d27;--line:#232b36;--text:#f0f2f5;--muted:#8b949e;
+        --accent:#e53935;--green:#3fb950;--yellow:#d4a72c;--blue:#58a6ff}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  header{border-bottom:1px solid var(--line);padding:14px 0}
+  header .wrap{display:flex;align-items:center;gap:12px}
+  .logo{width:34px;height:34px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff}
+  .brand{font-weight:800;font-size:20px}
+  .lang{margin-left:auto;display:flex;gap:8px}
+  .lang button{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:14px}
+  .lang button.on{border-color:var(--accent);color:var(--text)}
+  .hero{padding:64px 0 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+  h1{font-size:38px;line-height:1.15;margin-bottom:16px}
+  h1 .red{color:var(--accent)}
+  .sub{color:var(--muted);font-size:19px;margin-bottom:28px}
+  .btns{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:14px 24px;border-radius:10px;font-weight:700;text-decoration:none;font-size:17px}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-ghost{border:2px solid var(--green);color:var(--green)}
+  .note{color:var(--muted);font-size:13px;margin-top:12px}
+  .preview{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 18px 50px rgba(0,0,0,.5)}
+  .preview .cap{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+  .preview table{width:100%;border-collapse:collapse;font-size:13px}
+  .preview td{padding:7px 6px;border-bottom:1px solid var(--line)}
+  .preview .attr{color:var(--blue);font-family:Consolas,monospace}
+  .preview .val{color:var(--green);font-family:Consolas,monospace}
+  section{padding:44px 0}
+  h2{font-size:30px;margin-bottom:24px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .card b{display:block;margin-bottom:8px;font-size:17px}
+  .card span{color:var(--muted);font-size:15px}
+  table.cmp{width:100%;border-collapse:collapse;background:var(--panel);border-radius:12px;overflow:hidden}
+  .cmp th,.cmp td{padding:14px 18px;border-bottom:1px solid var(--line);text-align:left;font-size:16px}
+  .cmp th{background:#1b2330}
+  .cmp td.yes{color:var(--green);font-weight:700}
+  .cmp td.no{color:var(--muted)}
+  .price{color:var(--green);font-weight:800}
+  .faq div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  .faq b{display:block;margin-bottom:6px}
+  .faq p{color:var(--muted);font-size:15px}
+  footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:14px}
+  footer a{color:var(--blue);text-decoration:none}
+  .en{display:none}
+  @media(max-width:860px){.hero{grid-template-columns:1fr}.hero{padding-top:36px}h1{font-size:30px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="logo">A</div><div class="brand">A11yFix</div>
+  <div class="lang"><button id="ruBtn" class="on" onclick="setLang('ru')">RU</button><button id="enBtn" onclick="setLang('en')">EN</button></div>
+</div></header>
+
+<div class="wrap">
+<!-- ============ RU ============ -->
+<div id="ru">
+  <div class="hero">
+    <div>
+      <h1>Доступность <span class="red">без оверлеев</span>: аудит и настоящий ремонт разметки</h1>
+      <p class="sub">A11yFix находит реальные проблемы — alt, заголовки, подписи форм, язык страницы — и чинит сам DOM, показывая каждую правку до включения. Никаких виджетов поверх сайта.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="https://lava.top/products/685c5120-2915-4fe4-b120-20e022fa1173">Купить Pro — 4 990 ₽/год</a>
+        <a class="btn btn-ghost" href="https://github.com/Yodzira/a11yfix/releases/latest/download/a11yfix.zip">Скачать бесплатно</a>
+      </div>
+      <p class="note">WordPress 6.0+ • PHP 7.4+ • правки только добавляют атрибуты • данные не покидают сайт</p>
+    </div>
+    <div class="preview">
+      <div class="cap">Предпросмотр изменений — до включения правки</div>
+      <table>
+        <tr><td>img[src~="team.jpg"]</td><td class="attr">alt</td><td class="val">"Our team"</td></tr>
+        <tr><td>html</td><td class="attr">lang</td><td class="val">"ru-RU"</td></tr>
+        <tr><td>th (thead)</td><td class="attr">scope</td><td class="val">"col"</td></tr>
+        <tr><td>a[href="/contacts/"]</td><td class="attr">aria-label</td><td class="val">"Contacts"</td></tr>
+        <tr><td>iframe (youtube)</td><td class="attr">title</td><td class="val">"Video"</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <section>
+    <h2>Что он делает</h2>
+    <div class="grid">
+      <div class="card"><b>Аудит по 9 правилам</b><span>Alt, иерархия заголовков, пустые ссылки и кнопки, поля без label, язык страницы, title, «читать далее».</span></div>
+      <div class="card"><b>Ремонт с предпросмотром</b><span>Каждая правка показывает «элемент → атрибут → значение» до включения. Никто в нише так не делает.</span></div>
+      <div class="card"><b>Только добавление атрибутов</b><span>Теги, классы и тексты нетронуты — доказано Golden Master-тестом на живых страницах.</span></div>
+      <div class="card"><b>Не оверлей</b><span>Никаких тулбаров поверх сайта, которые ломают скринридеры. Мы чиним разметку, а не маскируем проблемы.</span></div>
+      <div class="card"><b>Приватность</b><span>Скан — на кроне по вашему сайту, результаты в вашей базе. Ничего не уходит наружу.</span></div>
+      <div class="card"><b>Чистый uninstall</b><span>Таблицы, настройки и крон стираются полностью. Страницы-заявления остаются вашими.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Free и Pro</h2>
+    <table class="cmp">
+      <tr><th></th><th>Free</th><th>Pro</th></tr>
+      <tr><td>Аудит 9 правил с «как чинить»</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td>Безопасные ремонты (alt, lang, scope) + предпросмотр</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td><b>Отчёт для клиента/юриста</b> (print → PDF, white-label агентства)</td><td class="no">—</td><td class="yes">✓</td></tr>
+      <tr><td><b>Недельный рескан до 25 страниц</b> + email-дайджест «что появилось / что починилось»</td><td class="no">—</td><td class="yes">✓</td></tr>
+      <tr><td>Цена</td><td>0 ₽</td><td class="price">4 990 ₽ / год</td></tr>
+    </table>
+    <p class="note" style="margin-top:14px">Pro — плагин-компаньон поверх бесплатной версии. Одна лицензия на один сайт.</p>
+  </section>
+
+  <section class="faq">
+    <h2>Вопросы</h2>
+    <div><b>Чем это лучше overlay-виджетов (UserWay, accessiBe)?</b><p>Оверлеи не чинят разметку, ломают скринридеры и создают ложную уверенность — против accessiBe идёт класс-иск. A11yFix ремонтирует сам DOM и показывает каждую правку.</p></div>
+    <div><b>Мой сайт станет «compliant»?</b><p>Автоматика закрывает механические 20–40% проблем. Контраст, фокус-порядок и ARIA-паттерны — за живым специалистом. Мы честно пишем это в отчёте.</p></div>
+    <div><b>Замедлит ли сайт?</b><p>Скан — на кроне. DOM-правки — через output buffer ≤ 15 мс; страницы без нужных правок отдаются байт-в-байт.</p></div>
+    <div><b>Как установить?</b><p>Скачайте zip → Плагины → Добавить новый → Загрузить → Активировать. Меню A11yFix → «Run scan now».</p></div>
+  </section>
+</div>
+
+<!-- ============ EN ============ -->
+<div id="en" class="en">
+  <div class="hero">
+    <div>
+      <h1>Accessibility <span class="red">without overlays</span>: audit and real markup repair</h1>
+      <p class="sub">A11yFix finds real problems — alt text, headings, form labels, page language — and fixes the actual DOM, showing every change before you enable it. No widgets on top of your site.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="https://lava.top/products/685c5120-2915-4fe4-b120-20e022fa1173">Buy Pro — $99/year</a>
+        <a class="btn btn-ghost" href="https://github.com/Yodzira/a11yfix/releases/latest/download/a11yfix.zip">Download free</a>
+      </div>
+      <p class="note">WordPress 6.0+ • PHP 7.4+ • repairs only add attributes • your data never leaves the site</p>
+    </div>
+    <div class="preview">
+      <div class="cap">Change preview — before any repair goes live</div>
+      <table>
+        <tr><td>img[src~="team.jpg"]</td><td class="attr">alt</td><td class="val">"Our team"</td></tr>
+        <tr><td>html</td><td class="attr">lang</td><td class="val">"ru-RU"</td></tr>
+        <tr><td>th (thead)</td><td class="attr">scope</td><td class="val">"col"</td></tr>
+        <tr><td>a[href="/contacts/"]</td><td class="attr">aria-label</td><td class="val">"Contacts"</td></tr>
+        <tr><td>iframe (youtube)</td><td class="attr">title</td><td class="val">"Video"</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <section>
+    <h2>What it does</h2>
+    <div class="grid">
+      <div class="card"><b>9-rule audit</b><span>Alt text, heading structure, nameless links and buttons, unlabeled fields, page language, title, vague link text.</span></div>
+      <div class="card"><b>Repairs with preview</b><span>Every repair lists "element → attribute → value" before activation. Nobody in the niche does this.</span></div>
+      <div class="card"><b>Additive only</b><span>Tags, classes and text untouched — proven by a Golden Master test on live rendered pages.</span></div>
+      <div class="card"><b>Not an overlay</b><span>No toolbars that break screen readers. We repair markup instead of masking problems.</span></div>
+      <div class="card"><b>Private</b><span>Scans run on cron against your own site; results stay in your database.</span></div>
+      <div class="card"><b>Clean uninstall</b><span>Tables, options and cron wiped completely. Statement pages remain yours.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Free vs Pro</h2>
+    <table class="cmp">
+      <tr><th></th><th>Free</th><th>Pro</th></tr>
+      <tr><td>9-rule audit with fix hints</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td>Safe repairs (alt, lang, scope) + preview</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td><b>Client-ready compliance report</b> (print → PDF, agency white-label)</td><td class="no">—</td><td class="yes">✓</td></tr>
+      <tr><td><b>Weekly rescans up to 25 pages</b> + email digests of what appeared / got fixed</td><td class="no">—</td><td class="yes">✓</td></tr>
+      <tr><td>Price</td><td>Free</td><td class="price">$99 / year</td></tr>
+    </table>
+    <p class="note" style="margin-top:14px">Pro is a companion plugin on top of the free version. One license per site.</p>
+  </section>
+
+  <section class="faq">
+    <h2>FAQ</h2>
+    <div><b>How is this better than overlay widgets (UserWay, accessiBe)?</b><p>Overlays don't fix markup, break screen readers and create false confidence — accessiBe faces a class action. A11yFix repairs the DOM itself and shows its work.</p></div>
+    <div><b>Will my site be "compliant"?</b><p>Automation covers the mechanical 20–40%. Contrast, focus order and ARIA patterns need a human expert — and we say so honestly in the report.</p></div>
+    <div><b>Will it slow my site down?</b><p>Scans run on cron. DOM repairs go through an output buffer (≤ 15 ms); pages needing no changes are served byte-for-byte.</p></div>
+    <div><b>How do I install it?</b><p>Download the zip → Plugins → Add New → Upload → Activate. A11yFix menu → "Run scan now".</p></div>
+  </section>
+</div>
+
+<footer><div class="wrap">
+  A11yFix © 2026 · <a href="https://github.com/Yodzira/a11yfix">GitHub</a> · GPL-2.0 · Бесплатная версия — свободная лицензия, Pro — годовая лицензия на 1 сайт.
+</div></footer>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('ru').style.display = l==='ru'?'block':'none';
+  document.getElementById('en').style.display = l==='en'?'block':'none';
+  document.getElementById('ruBtn').className = l==='ru'?'on':'';
+  document.getElementById('enBtn').className = l==='en'?'on':'';
+}
+</script>
+</body>
+</html>
