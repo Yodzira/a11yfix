@@ -355,7 +355,7 @@ class A11yFix_Admin {
 	 */
 	private function header() {
 		echo '<style>.a11yfix-wrap h1{margin-bottom:12px}</style>';
-		echo '<div class="notice notice-info"><p>⚡ <strong>A11yFix Pro</strong> — client-ready compliance report (print to PDF), weekly rescans with change digests, agency white-label. <a href="' . esc_url( 'https://lava.top/products/685c5120-2915-4fe4-b120-20e022fa1173' ) . '" target="_blank" rel="noopener">Buy — $99/year &rarr;</a></p></div>';
+		echo '<div class="notice notice-info"><p>⚡ <strong>A11yFix Pro</strong> — client-ready compliance report (print to PDF), weekly rescans with change digests, agency white-label. <a href="' . esc_url( 'https://yodsira.duckdns.org/buy/a11yfix' ) . '" target="_blank" rel="noopener">Buy — $99/year &rarr;</a></p></div>';
 	}
 
 	/**
