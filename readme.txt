@@ -1,5 +1,5 @@
 === A11yFix ===
-Contributors: yodzira
+Contributors: yodsira
 Tags: accessibility, wcag, ada, eaa, audit
 Requires at least: 6.0
 Tested up to: 7.1
