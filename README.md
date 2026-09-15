@@ -4,7 +4,7 @@
 
 **[RU]** Аудит доступности с настоящим ремонтом разметки: сканер находит картинки без alt, скачки заголовков, поля форм без подписей — а безопасные правки чинят сам DOM, показывая до включения, что именно изменится. Никаких overlay-виджетов.
 
-🔗 [Лендинг / Landing](https://yodzira.github.io/a11yfix/) · [**Скачать бесплатно / Download free**](https://github.com/Yodzira/a11yfix/releases/latest/download/a11yfix.zip) · [**Купить Pro — 4 990 ₽/год**](https://yodsira.duckdns.org/ru/buy/a11yfix)
+🔗 [Лендинг / Landing](https://yodzira.github.io/a11yfix/) · [**Скачать бесплатно / Download free**](https://github.com/Yodzira/a11yfix/releases/latest/download/a11yfix.zip) · [**Купить Pro — 4 990 ₽/год**](https://yodsira.com/ru/buy/a11yfix)
 
 ## Why not an overlay / Почему не overlay
 
@@ -44,7 +44,7 @@ Overlay-виджеты (те, что накидывают тулбар пове�
 
 ## A11yFix Pro
 
-Компаньон-плагин поверх бесплатной версии: [отчёт для клиента/юриста (print → PDF) с white-label агентства](https://yodsira.duckdns.org/ru/buy/a11yfix) и недельные ресканы до 25 страниц с email-дайджестом «что появилось / что починилось». **[Купить — 4 990 ₽/год](https://yodsira.duckdns.org/ru/buy/a11yfix)** · лицензия на 1 сайт. Бесплатная версия остаётся полноценной и не ограничена по срокам.
+Компаньон-плагин поверх бесплатной версии: [отчёт для клиента/юриста (print → PDF) с white-label агентства](https://yodsira.com/ru/buy/a11yfix) и недельные ресканы до 25 страниц с email-дайджестом «что появилось / что починилось». **[Купить — 4 990 ₽/год](https://yodsira.com/ru/buy/a11yfix)** · лицензия на 1 сайт. Бесплатная версия остаётся полноценной и не ограничена по срокам.
 
 ## Лицензия / License
 
