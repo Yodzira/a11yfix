@@ -78,7 +78,7 @@ The companion plugin adds the client-facing layer on top of the free audit:
 * weekly rescans of up to 25 pages with change digests
 * an honest "what automation does not cover" section
 
-<a href="https://yodsira.duckdns.org/buy/a11yfix">Buy A11yFix Pro — $99/year</a>
+<a href="https://yodsira.com/buy/a11yfix">Buy A11yFix Pro — $99/year</a>
 
 == Changelog ==
 
